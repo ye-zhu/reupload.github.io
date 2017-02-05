@@ -1,0 +1,49 @@
+body {
+  background-image: url("./assets/marsStars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*width: 500px;*/
+  padding: 30px;
+  margin: 0 auto;
+}
+
+#canvas1 {
+  border: 1px solid green;
+}
+
+.wrap {
+  display: flex;
+}
+
+.gameButtons {
+  border-radius: 10px;
+  display: block;
+  margin: 30px;
+  width: 300px;
+  height: 100px;
+  outline: 0;
+}
+
+.gameScreen {
+  margin-left: 80px;
+}
+
+.yezhu {
+  background-image: url("./assets/yezhu.png");
+  border-radius: 150px;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.caterpillar {
+  background-image: url("./assets/caterpillar.png");
+}
+
+.tetris {
+  background-image: url("./assets/tetris.png");
+}
+
+.asteroid {
+  background-image: url("./assets/asteroid.png");
+}

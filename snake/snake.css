@@ -1,0 +1,127 @@
+/*body {
+  background-image: url("./assets/bottom.jpg");
+  background-size: cover;
+  background-size: 1300px 800px;
+  background-repeat: no-repeat;
+  width: 500px;
+  margin: 0 auto;
+}*/
+
+
+
+.snakeView {
+  margin: 10px;
+  background-size: 430px 610px;
+  background-repeat: no-repeat;
+  background-image: url("./assets/leaf.jpg");
+}
+
+.snakeRow {
+  display: flex;
+}
+
+.snakeUnit {
+  width: 32px;
+  height: 32px;
+  margin: .5px;
+  /*border: 1px solid orange;*/
+  border-radius: 4px;
+}
+
+.snake {
+  background-size: 35px 35px;
+  background-position: center;
+  background-image: url("./assets/earth.png");
+  border-radius: 18px;
+  padding: .5px;
+  margin: 0px;
+  box-shadow: 10px 10px 15px #004d00;
+}
+
+.head {
+  background-size: 65px 75px;
+  background-image: url("./assets/head.png");
+}
+
+.introPanel {
+  /*margin-top: -1px;*/
+  padding-top: 30px;
+  background-color: rgba(0,255,255,0.3);
+  width: 430px;
+  height: 563px;
+}
+
+.snakeIntro {
+  margin: 0 auto;
+  background-image: url("./assets/intro.png");
+  width: 400px;
+  height: 280px;
+  background-repeat: no-repeat;
+}
+
+.caterpillaricon {
+  background-image: url("./assets/snake.png");
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.bottom {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bolder;
+  text-shadow: -2px 2px lightgreen;
+  text-align: center;
+}
+
+.p1 {
+  color: red;
+  font-size: 18px;
+  /*text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;*/
+}
+
+.score {
+  font-family: monospace;
+  position: absolute;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+
+/* FRUITS */
+.fruit {
+  background-size: 32px 32px;
+  background-position: center;
+  border-radius: 30px;
+}
+
+.cat {
+  background-image: url("./assets/cat.png");
+  border-radius: 0px;
+}
+
+.peace {
+  background-image: url("./assets/peace.png");
+  border-radius: 0px;
+}
+
+.orangeFruit {
+  background-image: url("./assets/fruit.png");
+  background-size: 37px 37px;
+}
+
+.heart {
+  background-image: url("./assets/heart.png");
+  border-radius: 0px;
+}
+
+.mushroom {
+  background-image: url("./assets/mushroom.png");
+  background-size: 35px 32px;
+  border-radius: 0px;
+}
+
+.flower {
+  background-image: url("./assets/flower.png");
+  background-size: 33px 33px;
+}

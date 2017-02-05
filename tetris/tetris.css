@@ -1,0 +1,104 @@
+
+.tetrisView {
+  margin-left: 50px;
+}
+
+.gameOver {
+  background-image: url("./image/tetrisGameOver.png");
+  background-size: 400px auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin-top: 5px;
+  margin-left: -55px;
+  width: 400px;
+  height: 640px;
+}
+
+.firstGame {
+  background-image: url("./image/tetris.png");
+  background-size: 289px 610px;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin: 3px;
+  width: 289px;
+  height: 610px;
+  border-radius: 5px;
+}
+
+.tetrisRow {
+  display: flex;
+}
+
+.rightPanel {
+  display: block;
+}
+
+.panelUnit {
+  display: block;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #708090;
+  font-family: 'Unica One';
+  color: orange;
+  font-size: 40px;
+}
+
+.nextPiece {
+  font-size: 26px;
+  line-height: 50px;
+}
+
+.tetrisUnit {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: .5px;
+  border: 1px solid 	#708090;
+  border-radius: 5px;
+
+}
+
+.black {
+  width: 0px;
+  height: 0px;
+  border: 0px;
+  background-color: black;
+  border-radius: 0px;
+}
+
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+}
+
+.salmon {
+  background-color: salmon;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.lightgreen {
+  background-color: lightgreen;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.gamePiece {
+  background-color: orange;
+}
