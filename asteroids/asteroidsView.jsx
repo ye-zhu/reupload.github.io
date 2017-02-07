@@ -42,13 +42,13 @@ class AsteroidsView extends React.Component {
   }
 
   render () {
-    let gameFn = () => {
+
       if (this.state.status === "firstGame") {
         this.loadImagesBeforeStartGame()
       }
-    }
+
       return (
-        <canvas id="canvas" width="800" height="600">{gameFn() || "LOADING..."}</canvas>
+        <canvas id="canvas" width="800" height="600">LOADING...</canvas>
       )
 
   }
