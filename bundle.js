@@ -21301,25 +21301,24 @@
 
 	'use strict';
 
-	var IMAGES = ['explosion', 'asteroid', 'ship', 'bullet', 'warp', 'asteroidintro'];
+	var IMAGES = ['explosion', 'asteroid', 'ship', 'warp', 'bullet', 'asteroidintro'];
 
 	var Images = {
 	  counter: 0,
-	  loadImages: function loadImages(asteroids) {
+	  loadImages: function loadImages(game) {
 
 	    IMAGES.forEach(function (imageName) {
 	      var img = new Image();
+	      img.src = './asteroids/assets/' + imageName + '.png';
+	      img.id = '' + imageName;
 	      img.onload = function () {
 	        Images.counter += 1;
 	        Images[imageName] = img;
-	        if (Images.counter === IMAGES.length) {
-	          Images.counter -= Images.counter;
-	          asteroids.startGame();
+	        if (Images.counter === IMAGES.length && game.state.status) {
+	          Images.counter = 0;
+	          game.startGame();
 	        }
 	      };
-
-	      img.src = './asteroids/assets/' + imageName + '.png';
-	      img.id = '' + imageName;
 	    });
 	  }
 
@@ -22000,14 +21999,6 @@
 	            _this2.shipImpulse = SHIP_STATUS.NOIMPULSE;
 	          }
 	        }
-	        // else if (e.key === 's') {
-	        //   if (e.type === 'keydown') {
-	        //     this.updateVector("decelerate")
-	        //     this.shipImpulse = SHIP_STATUS.IMPULSE
-	        //   } else {
-	        //     this.shipImpulse = SHIP_STATUS.NOIMPULSE
-	        //   }
-	        // }
 	      };
 
 	      document.addEventListener('keydown', listenersFn);
@@ -22040,7 +22031,6 @@
 	    value: function beforeMove() {
 	      this.invulnerability();
 	      this.rotateShip();
-	      // this.drawImage();
 	    }
 	  }]);
 

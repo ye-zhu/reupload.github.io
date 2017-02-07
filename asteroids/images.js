@@ -1,10 +1,10 @@
 const IMAGES = [
-  'asteroid',
   'explosion',
+  'asteroid',
   'ship',
-  'asteroidintro'
   'warp',
   'bullet',
+  'asteroidintro'
 ]
 
 const Images = {
@@ -18,7 +18,7 @@ const Images = {
         img.onload = function () {
           Images.counter += 1;
           Images[imageName] = img;
-          if (Images.counter === IMAGES.length && this.state.status) {
+          if (Images.counter === IMAGES.length && game.state.status) {
             Images.counter = 0
             game.startGame()
           }
