@@ -43,14 +43,14 @@ class AsteroidsView extends React.Component {
 
   render () {
     let gameFn = () => {
-      this.canvas = document.getElementById('canvas')
-      this.canvas.getContext('2d').fillText("LOADING...", canvas.width/2 - 50, canvas.height/2);
+      this.canvas = document.getElementById('canvas1')
+      this.canvas.getContext('2d').fillText("LOADING...", 50, 50);
       if (this.state.status === "firstGame") {
         this.startGame()
       }
     }
       return (
-        <canvas id="canvas" width="800" height="600">{gameFn()}</canvas>
+        <canvas id="canvas1" width="800" height="600">{gameFn()}</canvas>
       )
 
   }

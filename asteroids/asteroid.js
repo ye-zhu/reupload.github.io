@@ -1,6 +1,6 @@
 const Collidable = require('./collidable')
 
-const Canvas = document.getElementById('canvas');
+const Canvas = document.getElementById('canvas1');
 
 class Asteroid extends Collidable {
   constructor (params) {

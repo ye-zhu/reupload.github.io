@@ -9,7 +9,7 @@ const Description = require('./description')
 
 class Game {
   constructor () {
-    this.canvas = document.getElementById('canvas')
+    this.canvas = document.getElementById('canvas1')
     this.context = this.canvas.getContext('2d') ;
     this.canvas.width = "800";
     this.canvas.height = "600";
