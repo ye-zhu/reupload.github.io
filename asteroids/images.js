@@ -18,7 +18,7 @@ const Images = {
         img.onload = function () {
           Images.counter += 1;
           Images[imageName] = img;
-          if (Images.counter === IMAGES.length) {
+          if (Images.counter === IMAGES.length && this.state.status) {
             Images.counter = 0
             game.startGame()
           }
