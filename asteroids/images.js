@@ -7,12 +7,6 @@ const IMAGES = [
   'asteroidintro'
 ]
 
-const LOADING_STATUS = {
-  LOADING: "LOADING",
-  FINISHED_LOADING: "FINISHED_LOADING"
-}
-
-
 const Images = {
   counter: 0,
   loadImages: function (asteroids) {

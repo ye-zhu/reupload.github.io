@@ -21263,10 +21263,13 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      if (document.getElementById('canvas')) {
-	        this.canvas = document.getElementById('canvas');
-	        this.context = this.canvas.getContext('2d');
-	        this.context.fillText("LOADING...", canvas.width / 2 - 50, canvas.height / 2);
+	      var loading = void 0;
+	      if (!this.state.game) {
+	        loading = _react2.default.createElement(
+	          'span',
+	          { className: 'loading' },
+	          '"LOADING..."'
+	        );
 	      }
 
 	      var gameFn = function gameFn() {
@@ -21275,9 +21278,14 @@
 	        }
 	      };
 	      return _react2.default.createElement(
-	        'canvas',
-	        { id: 'canvas', width: '800', height: '600' },
-	        gameFn()
+	        'div',
+	        null,
+	        loading,
+	        _react2.default.createElement(
+	          'canvas',
+	          { id: 'canvas', width: '800', height: '600' },
+	          gameFn()
+	        )
 	      );
 	    }
 	  }]);
@@ -21294,11 +21302,6 @@
 	'use strict';
 
 	var IMAGES = ['explosion', 'asteroid', 'ship', 'bullet', 'warp', 'asteroidintro'];
-
-	var LOADING_STATUS = {
-	  LOADING: "LOADING",
-	  FINISHED_LOADING: "FINISHED_LOADING"
-	};
 
 	var Images = {
 	  counter: 0,

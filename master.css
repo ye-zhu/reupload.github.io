@@ -19,6 +19,14 @@ a {
   text-decoration: none;
 }
 
+.loading {
+  position: absolute;
+  margin-left: 350px;
+  margin-top: 300px;
+  font-size: 30px;
+  color: green;
+}
+
 .footer {
   padding-top: 30px;
   margin: auto;

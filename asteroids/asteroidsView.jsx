@@ -42,10 +42,9 @@ class AsteroidsView extends React.Component {
   }
 
   render () {
-    if (document.getElementById('canvas')) {
-      this.canvas = document.getElementById('canvas')
-      this.context = this.canvas.getContext('2d')
-      this.context.fillText("LOADING...", canvas.width/2 - 50, canvas.height/2);
+    let loading
+    if (!this.state.game) {
+      loading =  <span className="loading">"LOADING..."</span>
     }
 
     let gameFn = () => {
@@ -54,7 +53,10 @@ class AsteroidsView extends React.Component {
       }
     }
       return (
-        <canvas id="canvas" width="800" height="600">{gameFn()}</canvas>
+        <div>
+          {loading}
+          <canvas id="canvas" width="800" height="600">{gameFn()}</canvas>
+        </div>
       )
 
   }
