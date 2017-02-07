@@ -1,29 +1,28 @@
 const IMAGES = [
-  'explosion',
   'asteroid',
+  'explosion',
   'ship',
-  'bullet',
-  'warp',
   'asteroidintro'
+  'warp',
+  'bullet',
 ]
 
 const Images = {
   counter: 0,
-  loadImages: function (asteroids) {
+  loadImages: function (game) {
 
       IMAGES.forEach((imageName) => {
         let img = new Image();
+        img.src = `./asteroids/assets/${imageName}.png`;
+        img.id = `${imageName}`
         img.onload = function () {
           Images.counter += 1;
           Images[imageName] = img;
           if (Images.counter === IMAGES.length) {
-            Images.counter -= Images.counter
-            asteroids.startGame()
+            Images.counter = 0
+            game.startGame()
           }
         }
-
-        img.src = `./asteroids/assets/${imageName}.png`;
-        img.id = `${imageName}`
       })
 
   }
