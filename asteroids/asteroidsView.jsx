@@ -16,9 +16,14 @@ class AsteroidsView extends React.Component {
     if (this.state.game) {
       this.endGame();
     }
+      this.terminateLoading ();
       this.setState({game: undefined,
                      status: undefined
                   })
+  }
+
+  terminateLoading () {
+    Images.counter = 0
   }
 
   endGame() {
