@@ -21263,7 +21263,7 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      if (document.getElementById('canvas') && !this.state.game.running) {
+	      if (document.getElementById('canvas')) {
 	        this.canvas = document.getElementById('canvas');
 	        this.context = this.canvas.getContext('2d');
 	        this.context.fillText("LOADING...", canvas.width / 2 - 50, canvas.height / 2);
