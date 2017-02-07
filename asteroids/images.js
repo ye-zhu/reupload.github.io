@@ -19,9 +19,11 @@ const Images = {
         img.onload = function () {
           Images.counter += 1;
           Images[imageName] = img;
-          if (Images.counter === IMAGES.length && Images.view) {
+          if (Images.counter === IMAGES.length) {
             Images.counter = 0
-            Images.view.startGame()
+            if (Images.view) {
+              Images.view.startGame()
+            }
           }
         }
       })
