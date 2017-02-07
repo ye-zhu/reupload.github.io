@@ -21263,6 +21263,12 @@
 	    value: function render() {
 	      var _this2 = this;
 
+	      if (document.getElementById('canvas') && !this.state.game.running) {
+	        this.canvas = document.getElementById('canvas');
+	        this.context = this.canvas.getContext('2d');
+	        this.context.fillText("LOADING...", canvas.width / 2 - 50, canvas.height / 2);
+	      }
+
 	      var gameFn = function gameFn() {
 	        if (_this2.state.status === "firstGame") {
 	          _this2.loadImagesBeforeStartGame();
@@ -21270,7 +21276,7 @@
 	      };
 	      return _react2.default.createElement(
 	        'canvas',
-	        { id: 'canvas' },
+	        { id: 'canvas', width: '800', height: '600' },
 	        gameFn()
 	      );
 	    }
