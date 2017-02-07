@@ -24,6 +24,7 @@ class AsteroidsView extends React.Component {
 
   terminateLoading () {
     Images.counter = 0
+    Images.view = undefined
   }
 
   endGame() {
@@ -43,7 +44,8 @@ class AsteroidsView extends React.Component {
   }
 
   loadImagesBeforeStartGame () {
-    Images.loadImages(this)
+    Images.loadImages()
+    Images.view = this
   }
 
   render () {

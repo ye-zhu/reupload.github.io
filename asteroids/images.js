@@ -9,6 +9,7 @@ const IMAGES = [
 
 const Images = {
   counter: 0,
+  view: undefined,
   loadImages: function (game) {
 
       IMAGES.forEach((imageName) => {
@@ -18,9 +19,9 @@ const Images = {
         img.onload = function () {
           Images.counter += 1;
           Images[imageName] = img;
-          if (Images.counter === IMAGES.length) {
+          if (Images.counter === IMAGES.length && Images.view) {
             Images.counter = 0
-            game.startGame()
+            Images.view.startGame()
           }
         }
       })

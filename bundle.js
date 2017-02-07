@@ -21240,6 +21240,7 @@
 	    key: 'terminateLoading',
 	    value: function terminateLoading() {
 	      Images.counter = 0;
+	      Images.view = undefined;
 	    }
 	  }, {
 	    key: 'endGame',
@@ -21262,7 +21263,8 @@
 	  }, {
 	    key: 'loadImagesBeforeStartGame',
 	    value: function loadImagesBeforeStartGame() {
-	      Images.loadImages(this);
+	      Images.loadImages();
+	      Images.view = this;
 	    }
 	  }, {
 	    key: 'render',
@@ -21311,6 +21313,7 @@
 
 	var Images = {
 	  counter: 0,
+	  view: undefined,
 	  loadImages: function loadImages(game) {
 
 	    IMAGES.forEach(function (imageName) {
@@ -21320,9 +21323,9 @@
 	      img.onload = function () {
 	        Images.counter += 1;
 	        Images[imageName] = img;
-	        if (Images.counter === IMAGES.length) {
+	        if (Images.counter === IMAGES.length && Images.view) {
 	          Images.counter = 0;
-	          game.startGame();
+	          Images.view.startGame();
 	        }
 	      };
 	    });
