@@ -21231,9 +21231,15 @@
 	      if (this.state.game) {
 	        this.endGame();
 	      }
+	      this.terminateLoading();
 	      this.setState({ game: undefined,
 	        status: undefined
 	      });
+	    }
+	  }, {
+	    key: 'terminateLoading',
+	    value: function terminateLoading() {
+	      Images.counter = 0;
 	    }
 	  }, {
 	    key: 'endGame',
@@ -21314,9 +21320,8 @@
 	      img.onload = function () {
 	        Images.counter += 1;
 	        Images[imageName] = img;
-	        if (Images.counter === IMAGES.length && game.state.status === "firstGame") {
+	        if (Images.counter === IMAGES.length) {
 	          console.log(Images.counter);
-	          console.log(game.state.status);
 	          Images.counter = 0;
 	          game.startGame();
 	        }
