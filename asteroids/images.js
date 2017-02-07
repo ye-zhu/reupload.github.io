@@ -19,7 +19,6 @@ const Images = {
           Images.counter += 1;
           Images[imageName] = img;
           if (Images.counter === IMAGES.length) {
-            console.log(Images.counter);
             Images.counter = 0
             game.startGame()
           }

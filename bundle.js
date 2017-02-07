@@ -21321,7 +21321,6 @@
 	        Images.counter += 1;
 	        Images[imageName] = img;
 	        if (Images.counter === IMAGES.length) {
-	          console.log(Images.counter);
 	          Images.counter = 0;
 	          game.startGame();
 	        }
@@ -22332,7 +22331,7 @@
 	          { className: 'makeColor' },
 	          'PLAY'
 	        ),
-	        ' some of the javascript games I\'ve made by clicking on the game buttons on the left.'
+	        'some of the javascript games I\'ve made by clicking on the buttons on the left.'
 	      );
 	    }
 	  }]);

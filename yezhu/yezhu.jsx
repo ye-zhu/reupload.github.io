@@ -14,7 +14,8 @@ class YeZhu extends React.Component {
           I build web apps and games. I love the language of programming.
           When I am not working on a project, I am making and exhibiting art in NYC.
           <br/><br/>
-          <span className="makeColor">CHECK OUT</span> and <span className="makeColor">PLAY</span> some of the javascript games I've made by clicking on the game buttons on the left.
+          <span className="makeColor">CHECK OUT</span> and <span className="makeColor">PLAY</span>
+          some of the javascript games I've made by clicking on the buttons on the left.
 
       </div>
     )
