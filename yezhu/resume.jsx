@@ -50,7 +50,7 @@ class Resume extends React.Component {
           <span className="makeColor">CONTACT:</span> email: z.yeqin@gmail.com <span className="makeColor">|</span> phone: 718.314.9716
 
           <div className="icons">
-            <a href="mailto:z.yeqin@gmail.com"><button className="iconButtons" key="contact">Contact</button></a>
+            <a href="mailto:z.yeqin@gmail.com"><button className="iconButtons" key="contact">Email Me</button></a>
             <a href="./assets/webRESUME.pdf" target="_blank"><button className="iconButtons" key="resume">Resume</button></a>
           </div>
 
@@ -59,6 +59,8 @@ class Resume extends React.Component {
             <br></br>
             {this.makeIcons()}
           </div>
+          <br></br>
+          <span className="makeColor">*</span> I am a fast learner and creative problem solver
       </div>
     )
   }

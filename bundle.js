@@ -22295,6 +22295,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var IMAGES = ['javascript', 'html', 'css', 'canvas', 'ruby', 'react', 'jquery', 'git', 'photoshop', 'indesign', 'illustrator'];
+
 	var YeZhu = function (_React$Component) {
 	  _inherits(YeZhu, _React$Component);
 
@@ -22305,6 +22307,24 @@
 	  }
 
 	  _createClass(YeZhu, [{
+	    key: 'makeIcons',
+	    value: function makeIcons() {
+	      return IMAGES.map(function (imageName) {
+	        var img = new Image();
+	        img.onload = function () {
+	          Images[imageName] = img;
+	          if (Images.counter === IMAGES.length) {
+	            Images.counter -= Images.counter;
+	          }
+	        };
+
+	        var source = './yezhu/assets/' + imageName + '.png';
+	        var iconKey = '' + imageName;
+
+	        return _react2.default.createElement('img', { id: 'skillsIcon', key: iconKey, src: source });
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -22320,18 +22340,19 @@
 	        'I am a web developer experienced in Ruby, JavaScript, and ReactJS. I build web apps and games. I love the language of programming. When I am not working on a project, I am making and exhibiting art in NYC.',
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement('br', null),
+	        'CHECK OUT and PLAY some of the javascript games I\'ve made by clicking on the buttons on the left.',
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'span',
-	          { className: 'makeColor' },
-	          'CHECK OUT'
-	        ),
-	        ' and ',
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'makeColor' },
-	          'PLAY'
-	        ),
-	        'some of the javascript games I\'ve made by clicking on the buttons on the left.'
+	          'div',
+	          { className: 'icons' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'skills' },
+	            'SKILLS'
+	          ),
+	          _react2.default.createElement('br', null),
+	          this.makeIcons()
+	        )
 	      );
 	    }
 	  }]);
@@ -22457,7 +22478,7 @@
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'iconButtons', key: 'contact' },
-	              'Contact'
+	              'Email Me'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -22480,7 +22501,14 @@
 	          ),
 	          _react2.default.createElement('br', null),
 	          this.makeIcons()
-	        )
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          '*'
+	        ),
+	        ' I am a fast learner and creative problem solver'
 	      );
 	    }
 	  }]);
