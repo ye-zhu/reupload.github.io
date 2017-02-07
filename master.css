@@ -21,8 +21,9 @@ a {
 
 .loading {
   position: absolute;
-  margin-left: 350px;
-  margin-top: 300px;
+  margin-left: 330px;
+  margin-top: 280px;
+  font-family: monospace;
   font-size: 30px;
   color: green;
 }

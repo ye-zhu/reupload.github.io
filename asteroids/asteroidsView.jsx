@@ -44,7 +44,7 @@ class AsteroidsView extends React.Component {
   render () {
     let loading
     if (!this.state.game) {
-      loading =  <span className="loading">"LOADING..."</span>
+      loading =  <span className="loading">LOADING...</span>
     }
 
     let gameFn = () => {

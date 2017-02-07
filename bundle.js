@@ -21268,7 +21268,7 @@
 	        loading = _react2.default.createElement(
 	          'span',
 	          { className: 'loading' },
-	          '"LOADING..."'
+	          'LOADING...'
 	        );
 	      }
 
