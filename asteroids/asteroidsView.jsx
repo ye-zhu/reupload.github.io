@@ -44,7 +44,7 @@ class AsteroidsView extends React.Component {
   render () {
 
       if (this.state.status === "firstGame") {
-        this.loadImagesBeforeStartGame()
+        this.startGame()
       }
 
       return (
