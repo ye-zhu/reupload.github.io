@@ -60,7 +60,7 @@ class Resume extends React.Component {
             {this.makeIcons()}
           </div>
           <br></br>
-          <span className="makeColor">*</span> I am a fast learner and creative problem solver
+
       </div>
     )
   }

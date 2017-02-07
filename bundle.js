@@ -21323,9 +21323,11 @@
 	      img.onload = function () {
 	        Images.counter += 1;
 	        Images[imageName] = img;
-	        if (Images.counter === IMAGES.length && Images.view) {
+	        if (Images.counter === IMAGES.length) {
 	          Images.counter = 0;
-	          Images.view.startGame();
+	          if (Images.view) {
+	            Images.view.startGame();
+	          }
 	        }
 	      };
 	    });
@@ -22505,13 +22507,7 @@
 	          _react2.default.createElement('br', null),
 	          this.makeIcons()
 	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'makeColor' },
-	          '*'
-	        ),
-	        ' I am a fast learner and creative problem solver'
+	        _react2.default.createElement('br', null)
 	      );
 	    }
 	  }]);
