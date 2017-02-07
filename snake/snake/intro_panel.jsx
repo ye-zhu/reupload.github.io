@@ -33,8 +33,9 @@ class IntroPanel extends React.Component {
       <div className="introPanel">
         <div className="snakeIntro"></div>
         <div className="bottom">
-          Your Top Score = <span className="p1">&nbsp;{this.props.topScore}</span> / Your Score = <span className="p1">&nbsp;{this.props.score}</span>
+          <br/>
           <div className="snakeIntro caterpillaricon"> </div>
+          Your Top Score = <span className="p1">&nbsp;{this.props.topScore || 0}</span> / Your Score = <span className="p1">&nbsp;{this.props.score || 0}</span>
         </div>
       </div>
     )

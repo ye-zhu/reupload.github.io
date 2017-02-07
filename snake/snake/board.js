@@ -7,8 +7,8 @@ class Board {
 
   makeBoard () {
     let pos = []
-    let grid = Array(18).fill().map((row, rowidx) => {
-      return Array(13).fill().map((unit, colidx) =>{
+    let grid = Array(13).fill().map((row, rowidx) => {
+      return Array(19).fill().map((unit, colidx) =>{
         pos.push([rowidx, colidx])
         return {
         }

@@ -208,13 +208,13 @@ class Game {
   keyDownEvent (e) {
         if (DELTAS[e.key] && this.validMove(DELTAS[e.key])) {
           this.movePiece(DELTAS[e.key])
-        } else if (e.key === 'e' || e.key === 'E' && this.gamePiece.fillColor !== "red"){
+        } else if ((e.key === 'e' || e.key === 'E') && this.gamePiece.fillColor !== "red"){
           let rotatePos = this.rotatePiece(MATRIX.rotateClockwise)
 
             this.rotateCheck(rotatePos)
 
 
-        } else if (e.key === 'q' || e.key === 'Q' && this.gamePiece.fillColor !== "red") {
+        } else if ((e.key === 'q' || e.key === 'Q') && this.gamePiece.fillColor !== "red") {
           let rotatePos = this.rotatePiece(MATRIX.rotateCounterClockwise)
 
             this.rotateCheck(rotatePos)

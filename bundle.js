@@ -72,9 +72,13 @@
 
 	var _asteroidsView2 = _interopRequireDefault(_asteroidsView);
 
-	var _yezhu = __webpack_require__(182);
+	var _yezhu = __webpack_require__(180);
 
 	var _yezhu2 = _interopRequireDefault(_yezhu);
+
+	var _resume = __webpack_require__(181);
+
+	var _resume2 = _interopRequireDefault(_resume);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88,7 +92,8 @@
 	  yezhu: _react2.default.createElement(_yezhu2.default, null),
 	  caterpillar: _react2.default.createElement(_view4.default, null),
 	  tetris: _react2.default.createElement(_view2.default, null),
-	  asteroid: _react2.default.createElement(_asteroidsView2.default, null)
+	  asteroid: _react2.default.createElement(_asteroidsView2.default, null),
+	  resume: _react2.default.createElement(_resume2.default, null)
 	};
 
 	var MainView = function (_React$Component) {
@@ -100,7 +105,7 @@
 	    var _this = _possibleConstructorReturn(this, (MainView.__proto__ || Object.getPrototypeOf(MainView)).call(this, props));
 
 	    _this.state = {
-	      currentGame: GAMES.yezhu
+	      currentGame: 'yezhu'
 	    };
 	    return _this;
 	  }
@@ -108,7 +113,6 @@
 	  _createClass(MainView, [{
 	    key: 'startGame',
 	    value: function startGame(game) {
-	      this.setState({ currentGame: false });
 	      this.setState({ currentGame: game });
 	    }
 	  }, {
@@ -116,23 +120,32 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      var buttons = ["yezhu", "asteroid", "caterpillar", "tetris"].map(function (game) {
+	      var buttons = ["yezhu", "asteroid", "caterpillar", "tetris", "resume"].map(function (game) {
 	        return _react2.default.createElement('button', { key: game, className: 'gameButtons ' + game, onClick: _this2.startGame.bind(_this2, game) });
 	      });
 
 	      var game = GAMES[this.state.currentGame];
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'wrap' },
+	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'games' },
-	          buttons
+	          { className: 'wrap' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'games' },
+	            buttons
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'gameScreen' },
+	            game
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'gameScreen' },
-	          game
+	          { className: 'footer' },
+	          '  Copyright \xA9 Ye Qin Zhu, All Rights Reserved | 2017  '
 	        )
 	      );
 	    }
@@ -19947,8 +19960,8 @@
 	          this.state.game.addListeners();
 	          this.state.game.setPieceIntoMotion();
 	        }
+	        this.removeListener();
 	      }
-	      this.removeListener();
 	    }
 	  }, {
 	    key: 'boardRender',
@@ -20281,11 +20294,11 @@
 	    value: function keyDownEvent(e) {
 	      if (DELTAS[e.key] && this.validMove(DELTAS[e.key])) {
 	        this.movePiece(DELTAS[e.key]);
-	      } else if (e.key === 'e' || e.key === 'E' && this.gamePiece.fillColor !== "red") {
+	      } else if ((e.key === 'e' || e.key === 'E') && this.gamePiece.fillColor !== "red") {
 	        var rotatePos = this.rotatePiece(MATRIX.rotateClockwise);
 
 	        this.rotateCheck(rotatePos);
-	      } else if (e.key === 'q' || e.key === 'Q' && this.gamePiece.fillColor !== "red") {
+	      } else if ((e.key === 'q' || e.key === 'Q') && this.gamePiece.fillColor !== "red") {
 	        var _rotatePos = this.rotatePiece(MATRIX.rotateCounterClockwise);
 
 	        this.rotateCheck(_rotatePos);
@@ -20683,9 +20696,9 @@
 	        this.state.showWhichView = 'running';
 	        this.state.game.lost = false;
 	        this.state.game.score = 0;
-	        this.state.game.snake.pos = [[4, 6], [3, 6], [2, 6], [1, 6]];
-	        this.state.game.currentDelta = [1, 0];
-	        this.state.game.newDelta = [1, 0];
+	        this.state.game.snake.pos = [[6, 14], [6, 15], [6, 16], [6, 17]];
+	        this.state.game.currentDelta = [0, -1];
+	        this.state.game.newDelta = [0, -1];
 	        this.state.game.startSnake();
 	      }
 	    }
@@ -20822,8 +20835,8 @@
 	    this.board = new _board2.default();
 	    this.snake = new _snake2.default();
 	    this.addEventListener();
-	    this.currentDelta = DELTAS['s'];
-	    this.newDelta = DELTAS['s'];
+	    this.currentDelta = DELTAS['a'];
+	    this.newDelta = DELTAS['a'];
 	    this.fruit;
 	    this.fruitType;
 	    this.lost = false;
@@ -20882,7 +20895,7 @@
 	        }
 	      }
 
-	      if (snakeHead[0] > 17 || snakeHead[0] < 0 || snakeHead[1] > 12 || snakeHead[1] < 0) {
+	      if (snakeHead[0] > 12 || snakeHead[0] < 0 || snakeHead[1] > 18 || snakeHead[1] < 0) {
 	        this.lost = "wall";
 	        this.pauseGame();
 	        this.view.showPanel();
@@ -20954,8 +20967,8 @@
 	    key: "makeBoard",
 	    value: function makeBoard() {
 	      var pos = [];
-	      var grid = Array(18).fill().map(function (row, rowidx) {
-	        return Array(13).fill().map(function (unit, colidx) {
+	      var grid = Array(13).fill().map(function (row, rowidx) {
+	        return Array(19).fill().map(function (unit, colidx) {
 	          pos.push([rowidx, colidx]);
 	          return {};
 	        });
@@ -20994,7 +21007,7 @@
 	  function Snake() {
 	    _classCallCheck(this, Snake);
 
-	    this.startpos = [[4, 6], [3, 6], [2, 6], [1, 6]];
+	    this.startpos = [[6, 14], [6, 15], [6, 16], [6, 17]];
 	    this.pos = this.startpos;
 	  }
 
@@ -21091,24 +21104,25 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'bottom' },
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'snakeIntro caterpillaricon' },
+	            ' '
+	          ),
 	          'Your Top Score = ',
 	          _react2.default.createElement(
 	            'span',
 	            { className: 'p1' },
 	            '\xA0',
-	            this.props.topScore
+	            this.props.topScore || 0
 	          ),
 	          ' / Your Score = ',
 	          _react2.default.createElement(
 	            'span',
 	            { className: 'p1' },
 	            '\xA0',
-	            this.props.score
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'snakeIntro caterpillaricon' },
-	            ' '
+	            this.props.score || 0
 	          )
 	        )
 	      );
@@ -21256,7 +21270,7 @@
 	      };
 	      return _react2.default.createElement(
 	        'canvas',
-	        { id: 'canvas1' },
+	        { id: 'canvas' },
 	        gameFn()
 	      );
 	    }
@@ -21325,7 +21339,7 @@
 	  function Game() {
 	    _classCallCheck(this, Game);
 
-	    this.canvas = document.getElementById('canvas1');
+	    this.canvas = document.getElementById('canvas');
 	    this.context = this.canvas.getContext('2d');
 	    this.canvas.width = "800";
 	    this.canvas.height = "600";
@@ -22249,9 +22263,7 @@
 	module.exports = Description;
 
 /***/ },
-/* 180 */,
-/* 181 */,
-/* 182 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22290,7 +22302,32 @@
 	  _createClass(YeZhu, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', null);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'yeZhuPage' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'yeZhuPage intro' },
+	          ' Hi. I\u2019m Ye Qin Zhu. '
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        'I am a web developer experienced in Ruby, JavaScript, and ReactJS. I build web apps and games. I love the language of programming. When I am not working on a project, I am making and exhibiting art in NYC.',
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          'CHECK OUT'
+	        ),
+	        ' and ',
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          'PLAY'
+	        ),
+	        ' some of the javascript games I\'ve made by clicking on the game buttons on the left.'
+	      );
 	    }
 	  }]);
 
@@ -22298,6 +22335,155 @@
 	}(_react2.default.Component);
 
 	exports.default = YeZhu;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(158);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var IMAGES = ['javascript', 'html', 'css', 'canvas', 'ruby', 'react', 'jquery', 'git', 'photoshop', 'indesign', 'illustrator'];
+
+	var Resume = function (_React$Component) {
+	  _inherits(Resume, _React$Component);
+
+	  function Resume(props) {
+	    _classCallCheck(this, Resume);
+
+	    return _possibleConstructorReturn(this, (Resume.__proto__ || Object.getPrototypeOf(Resume)).call(this, props));
+	  }
+
+	  _createClass(Resume, [{
+	    key: 'makeIcons',
+	    value: function makeIcons() {
+	      return IMAGES.map(function (imageName) {
+	        var img = new Image();
+	        img.onload = function () {
+	          Images[imageName] = img;
+	          if (Images.counter === IMAGES.length) {
+	            Images.counter -= Images.counter;
+	          }
+	        };
+
+	        var source = './yezhu/assets/' + imageName + '.png';
+	        var iconKey = '' + imageName;
+
+	        return _react2.default.createElement('img', { id: 'skillsIcon', key: iconKey, src: source });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'yeZhuPage' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'yeZhuPage intro' },
+	          ' RESUME'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          'GITHUB:'
+	        ),
+	        ' ',
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://github.com/ye-zhu', target: '_blank' },
+	          ' https://github.com/ye-zhu'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          'ARTIST WEBSITE:'
+	        ),
+	        ' ',
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'http://www.yeqinzhu.info/', target: '_blank' },
+	          ' www.yeqinzhu.info'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          'CONTACT:'
+	        ),
+	        ' email: z.yeqin@gmail.com ',
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'makeColor' },
+	          '|'
+	        ),
+	        ' phone: 718.314.9716',
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'icons' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'mailto:z.yeqin@gmail.com' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'iconButtons', key: 'contact' },
+	              'Contact'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'a',
+	            { href: './assets/webRESUME.pdf', target: '_blank' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'iconButtons', key: 'resume' },
+	              'Resume'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'icons' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'skills' },
+	            'SKILLS'
+	          ),
+	          _react2.default.createElement('br', null),
+	          this.makeIcons()
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Resume;
+	}(_react2.default.Component);
+
+	exports.default = Resume;
 
 /***/ }
 /******/ ]);

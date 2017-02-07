@@ -54,9 +54,9 @@ class SnakeView extends React.Component {
       this.state.showWhichView = 'running';
       this.state.game.lost = false;
       this.state.game.score = 0;
-      this.state.game.snake.pos = [[4,6], [3,6], [2,6], [1,6]];
-      this.state.game.currentDelta = [1,0];
-      this.state.game.newDelta = [1,0];
+      this.state.game.snake.pos = [[6,14], [6,15], [6,16], [6,17]];
+      this.state.game.currentDelta = [0,-1];
+      this.state.game.newDelta = [0,-1];
       this.state.game.startSnake();
     }
 

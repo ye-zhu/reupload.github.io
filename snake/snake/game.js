@@ -20,8 +20,8 @@ class Game {
     this.board = new Board();
     this.snake = new Snake();
     this.addEventListener();
-    this.currentDelta = DELTAS['s'];
-    this.newDelta = DELTAS['s'];
+    this.currentDelta = DELTAS['a'];
+    this.newDelta = DELTAS['a'];
     this.fruit;
     this.fruitType;
     this.lost = false;
@@ -72,7 +72,7 @@ class Game {
       }
     }
 
-    if (snakeHead[0] > 17 || snakeHead[0] < 0 || snakeHead[1] > 12 || snakeHead[1] < 0) {
+    if (snakeHead[0] > 12 || snakeHead[0] < 0 || snakeHead[1] > 18 || snakeHead[1] < 0) {
       this.lost = "wall";
       this.pauseGame();
       this.view.showPanel();

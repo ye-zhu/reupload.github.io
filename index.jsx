@@ -5,13 +5,15 @@ import SnakeView from './snake/snake/view'
 import LeftPanel from './leftPanel/leftPanel'
 import AsteroidsView from './asteroids/asteroidsView'
 import YeZhu from './yezhu/yezhu'
+import Resume from './yezhu/resume'
 
 
 const GAMES = {
   yezhu: <YeZhu/>,
   caterpillar: <SnakeView/>,
   tetris: <TetrisView/>,
-asteroid: <AsteroidsView/>
+  asteroid: <AsteroidsView/>,
+  resume: <Resume/>
 }
 
 
@@ -19,17 +21,16 @@ class MainView extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      currentGame: GAMES.yezhu
+      currentGame: 'yezhu'
     }
   }
 
   startGame (game) {
-    this.setState({currentGame: false})
     this.setState({currentGame: game})
   }
 
   render () {
-    let buttons = ["yezhu", "asteroid", "caterpillar", "tetris"].map((game) => {
+    let buttons = ["yezhu", "asteroid", "caterpillar", "tetris", "resume"].map((game) => {
       return (
         <button key={game} className={`gameButtons ${game}`} onClick={this.startGame.bind(this, game)}>
         </button>
@@ -38,14 +39,19 @@ class MainView extends React.Component {
 
     let game = GAMES[this.state.currentGame]
     return (
-      <div className="wrap">
-        <div className="games">
-          {buttons}
+      <div>
+        <div className="wrap">
+          <div className="games">
+            {buttons}
+          </div>
+          <div className="gameScreen">
+            {game}
+          </div>
         </div>
-        <div className="gameScreen">
-          {game}
-        </div>
+
+        <div className="footer">  Copyright © Ye Qin Zhu, All Rights Reserved | 2017  </div>
       </div>
+
     )
   }
 

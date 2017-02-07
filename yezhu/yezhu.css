@@ -1,0 +1,47 @@
+.yeZhuPage {
+  margin-top: 60px;
+  width: 750px;
+  color: white;
+  font-family: 'NTR';
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.intro {
+  font-size: 90px;
+  color: orange;
+}
+
+.icons {
+  padding-top: 10px;
+  margin: auto;
+  margin-top: 20px;
+  display: block;
+  width: 520px
+}
+
+.makeColor {
+  color: orange;
+}
+
+.skills {
+  margin-left: 200px;
+}
+
+.iconButtons {
+  background-color: lightblue;
+  border-radius: 10px;
+  font-size: 30px;
+  margin-left: 60px;
+  margin-top: 20px;
+  width: 150px;
+  height: 50px;
+  outline: 0;
+}
+
+#skillsIcon {
+  width: 70px;
+  padding: 7px;
+  height: auto;
+
+}

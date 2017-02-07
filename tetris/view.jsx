@@ -59,8 +59,8 @@ class TetrisView extends React.Component {
           this.state.game.addListeners();
           this.state.game.setPieceIntoMotion();
         }
+        this.removeListener()
       }
-    this.removeListener()
   }
 
   boardRender () {

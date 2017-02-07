@@ -4,7 +4,7 @@
 
 class Snake {
   constructor () {
-    this.startpos = [[4,6], [3,6], [2,6], [1,6]];
+    this.startpos = [[6,14], [6,15], [6,16], [6,17]];
     this.pos = this.startpos
   }
 

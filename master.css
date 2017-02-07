@@ -2,13 +2,26 @@ body {
   background-image: url("./assets/marsStars.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /*width: 500px;*/
   padding: 30px;
   margin: 0 auto;
 }
 
-#canvas1 {
+#canvas {
   border: 1px solid green;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer {
+  padding-top: 30px;
+  margin: auto;
+  width: 320px;
+  color: white;
+  font-family: 'NTR';
+  font-size: 16px;
 }
 
 .wrap {
@@ -16,11 +29,12 @@ body {
 }
 
 .gameButtons {
+  background-size: 218px 72px;
   border-radius: 10px;
   display: block;
   margin: 30px;
-  width: 300px;
-  height: 100px;
+  width: 220px;
+  height: 75px;
   outline: 0;
 }
 
@@ -30,9 +44,10 @@ body {
 
 .yezhu {
   background-image: url("./assets/yezhu.png");
+  background-size: 180px 180px;
   border-radius: 150px;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   margin: 0 auto;
 }
 
@@ -46,4 +61,8 @@ body {
 
 .asteroid {
   background-image: url("./assets/asteroid.png");
+}
+
+.resume {
+  background-image: url("./assets/resume.png");
 }
