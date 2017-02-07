@@ -1,7 +1,5 @@
 const Collidable = require('./collidable')
 
-
-
 class Bullet extends Collidable {
   constructor (params) {
     super(params)

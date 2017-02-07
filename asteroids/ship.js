@@ -109,14 +109,6 @@ class Ship extends Collidable {
         }
 
       }
-      // else if (e.key === 's') {
-      //   if (e.type === 'keydown') {
-      //     this.updateVector("decelerate")
-      //     this.shipImpulse = SHIP_STATUS.IMPULSE
-      //   } else {
-      //     this.shipImpulse = SHIP_STATUS.NOIMPULSE
-      //   }
-      // }
     }
 
       document.addEventListener('keydown', listenersFn)
@@ -146,7 +138,6 @@ class Ship extends Collidable {
   beforeMove () {
     this.invulnerability()
     this.rotateShip();
-    // this.drawImage();
   }
 
 }
