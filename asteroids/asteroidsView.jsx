@@ -48,7 +48,7 @@ class AsteroidsView extends React.Component {
       }
     }
       return (
-        <canvas id="canvas">{gameFn()}</canvas>
+        <canvas id="canvas" width="800" height="600">{gameFn() || "LOADING..."}</canvas>
       )
 
   }
