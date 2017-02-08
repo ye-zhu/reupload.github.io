@@ -2,14 +2,10 @@ import Board from './board'
 import Snake from './snake'
 
 const DELTAS = {
-  'w': [-1,0],
-  's': [1,0],
-  'd': [0,1],
-  'a': [0,-1],
-  'W': [-1,0],
-  'S': [1,0],
-  'D': [0,1],
-  'A': [0,-1]
+  87: [-1,0],
+  83: [1,0],
+  68: [0,1],
+  65: [0,-1]
 }
 
 const FRUITTYPE = ["cat", "flower", "peace", "orangeFruit", "heart", "mushroom"]
@@ -20,8 +16,8 @@ class Game {
     this.board = new Board();
     this.snake = new Snake();
     this.addEventListener();
-    this.currentDelta = DELTAS['a'];
-    this.newDelta = DELTAS['a'];
+    this.currentDelta = DELTAS[65];
+    this.newDelta = DELTAS[65];
     this.fruit;
     this.fruitType;
     this.lost = false;
@@ -33,8 +29,8 @@ class Game {
 
   addEventListener () {
     document.addEventListener('keydown', (e) => {
-      if (DELTAS[e.key]) {
-        this.newDelta = DELTAS[e.key]
+      if (DELTAS[e.keyCode]) {
+        this.newDelta = DELTAS[e.keyCode]
       } else if (e.keyCode == 32) {
         e.preventDefault();
         this.pauseGame()

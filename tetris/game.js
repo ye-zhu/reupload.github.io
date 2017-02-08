@@ -3,12 +3,9 @@ import Piece from './piece.js'
 // import View from './view.js'
 
 const DELTAS = {
-  's': [1,0],
-  'd': [0,1],
-  'a': [0,-1],
-  'S': [1,0],
-  'D': [0,1],
-  'A': [0,-1],
+  83: [1,0],
+  68: [0,1],
+  65: [0,-1]
 }
 
 const MATRIX = {
@@ -206,15 +203,15 @@ class Game {
   }
 
   keyDownEvent (e) {
-        if (DELTAS[e.key] && this.validMove(DELTAS[e.key])) {
-          this.movePiece(DELTAS[e.key])
-        } else if ((e.key === 'e' || e.key === 'E') && this.gamePiece.fillColor !== "red"){
+        if (DELTAS[e.keyCode] && this.validMove(DELTAS[e.keyCode])) {
+          this.movePiece(DELTAS[e.keyCode])
+        } else if ((e.keyCode === 69) && this.gamePiece.fillColor !== "red"){
           let rotatePos = this.rotatePiece(MATRIX.rotateClockwise)
 
             this.rotateCheck(rotatePos)
 
 
-        } else if ((e.key === 'q' || e.key === 'Q') && this.gamePiece.fillColor !== "red") {
+        } else if ((e.keyCode === 81) && this.gamePiece.fillColor !== "red") {
           let rotatePos = this.rotatePiece(MATRIX.rotateCounterClockwise)
 
             this.rotateCheck(rotatePos)

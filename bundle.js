@@ -20067,12 +20067,9 @@
 	// import View from './view.js'
 
 	var DELTAS = {
-	  's': [1, 0],
-	  'd': [0, 1],
-	  'a': [0, -1],
-	  'S': [1, 0],
-	  'D': [0, 1],
-	  'A': [0, -1]
+	  83: [1, 0],
+	  68: [0, 1],
+	  65: [0, -1]
 	};
 
 	var MATRIX = {
@@ -20292,13 +20289,13 @@
 	  }, {
 	    key: 'keyDownEvent',
 	    value: function keyDownEvent(e) {
-	      if (DELTAS[e.key] && this.validMove(DELTAS[e.key])) {
-	        this.movePiece(DELTAS[e.key]);
-	      } else if ((e.key === 'e' || e.key === 'E') && this.gamePiece.fillColor !== "red") {
+	      if (DELTAS[e.keyCode] && this.validMove(DELTAS[e.keyCode])) {
+	        this.movePiece(DELTAS[e.keyCode]);
+	      } else if (e.keyCode === 69 && this.gamePiece.fillColor !== "red") {
 	        var rotatePos = this.rotatePiece(MATRIX.rotateClockwise);
 
 	        this.rotateCheck(rotatePos);
-	      } else if ((e.key === 'q' || e.key === 'Q') && this.gamePiece.fillColor !== "red") {
+	      } else if (e.keyCode === 81 && this.gamePiece.fillColor !== "red") {
 	        var _rotatePos = this.rotatePiece(MATRIX.rotateCounterClockwise);
 
 	        this.rotateCheck(_rotatePos);
@@ -20815,14 +20812,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var DELTAS = {
-	  'w': [-1, 0],
-	  's': [1, 0],
-	  'd': [0, 1],
-	  'a': [0, -1],
-	  'W': [-1, 0],
-	  'S': [1, 0],
-	  'D': [0, 1],
-	  'A': [0, -1]
+	  87: [-1, 0],
+	  83: [1, 0],
+	  68: [0, 1],
+	  65: [0, -1]
 	};
 
 	var FRUITTYPE = ["cat", "flower", "peace", "orangeFruit", "heart", "mushroom"];
@@ -20835,8 +20828,8 @@
 	    this.board = new _board2.default();
 	    this.snake = new _snake2.default();
 	    this.addEventListener();
-	    this.currentDelta = DELTAS['a'];
-	    this.newDelta = DELTAS['a'];
+	    this.currentDelta = DELTAS[65];
+	    this.newDelta = DELTAS[65];
 	    this.fruit;
 	    this.fruitType;
 	    this.lost = false;
@@ -20852,8 +20845,8 @@
 	      var _this = this;
 
 	      document.addEventListener('keydown', function (e) {
-	        if (DELTAS[e.key]) {
-	          _this.newDelta = DELTAS[e.key];
+	        if (DELTAS[e.keyCode]) {
+	          _this.newDelta = DELTAS[e.keyCode];
 	        } else if (e.keyCode == 32) {
 	          e.preventDefault();
 	          _this.pauseGame();
@@ -21982,26 +21975,26 @@
 	      var _this2 = this;
 
 	      var listenersFn = function listenersFn(e) {
-	        if (e.key === " " && _this2.game.running) {
+	        if (e.keyCode === 32 && _this2.game.running) {
 	          e.preventDefault();
 	          if (e.type === 'keydown') {
 	            _this2.fireBullet();
 	          }
-	        } else if (e.key === 'd' || e.key === 'D' && _this2.game.running) {
+	        } else if (e.keyCode === 68 && _this2.game.running) {
 	          if (e.type === 'keydown') {
 	            e.preventDefault();
 	            _this2.rotationState = ROTATION_STATE.CLOCKWISE;
 	          } else {
 	            _this2.rotationState = ROTATION_STATE.NONE;
 	          }
-	        } else if (e.key === 'a' || e.key === 'A' && _this2.game.running) {
+	        } else if (e.keyCode === 65 && _this2.game.running) {
 	          e.preventDefault();
 	          if (e.type === 'keydown') {
 	            _this2.rotationState = ROTATION_STATE.COUNTER_CLOCKWISE;
 	          } else {
 	            _this2.rotationState = ROTATION_STATE.NONE;
 	          }
-	        } else if (e.key === 'w' || e.key === 'W' && _this2.game.running) {
+	        } else if (e.keyCode === 87 && _this2.game.running) {
 	          e.preventDefault();
 	          if (e.type === 'keydown') {
 	            _this2.updateVector("accelerate");
