@@ -14,11 +14,11 @@ class IntroPanel extends React.Component {
 
   addEventListener () {
     this.keyListener = this.makePanel.bind(this)
-    document.addEventListener('keydown', this.keyListener)
+    this.addlistener = document.addEventListener('keydown', this.keyListener)
   }
 
   removeEventListener () {
-    document.removeEventListener('keydown', this.keyListener)
+    this.addlistener = document.removeEventListener('keydown', this.keyListener)
   }
 
   makePanel (e) {

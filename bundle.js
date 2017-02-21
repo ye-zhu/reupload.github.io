@@ -21072,12 +21072,12 @@
 	    key: 'addEventListener',
 	    value: function addEventListener() {
 	      this.keyListener = this.makePanel.bind(this);
-	      document.addEventListener('keydown', this.keyListener);
+	      this.addlistener = document.addEventListener('keydown', this.keyListener);
 	    }
 	  }, {
 	    key: 'removeEventListener',
 	    value: function removeEventListener() {
-	      document.removeEventListener('keydown', this.keyListener);
+	      this.addlistener = document.removeEventListener('keydown', this.keyListener);
 	    }
 	  }, {
 	    key: 'makePanel',
