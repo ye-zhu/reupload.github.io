@@ -35,11 +35,11 @@ class TetrisView extends React.Component {
 
   addListener () {
     this.keyListener = this.keyDownEvent.bind(this)
-    document.addEventListener('keydown', this.keyListener)
+    this.addIntroListener = document.addEventListener('keydown', this.keyListener)
   }
 
   removeListener () {
-    document.removeEventListener('keydown', this.keyListener);
+    this.addIntroListener = document.removeEventListener('keydown', this.keyListener);
   }
 
   keyDownEvent (e) {
