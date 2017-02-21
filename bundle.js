@@ -19934,12 +19934,12 @@
 	    key: 'addListener',
 	    value: function addListener() {
 	      this.keyListener = this.keyDownEvent.bind(this);
-	      document.addEventListener('keydown', this.keyListener);
+	      this.addIntroListener = document.addEventListener('keydown', this.keyListener);
 	    }
 	  }, {
 	    key: 'removeListener',
 	    value: function removeListener() {
-	      document.removeEventListener('keydown', this.keyListener);
+	      this.addIntroListener = document.removeEventListener('keydown', this.keyListener);
 	    }
 	  }, {
 	    key: 'keyDownEvent',
@@ -20960,12 +20960,22 @@
 	    key: "makeBoard",
 	    value: function makeBoard() {
 	      var pos = [];
-	      var grid = Array(13).fill().map(function (row, rowidx) {
-	        return Array(19).fill().map(function (unit, colidx) {
-	          pos.push([rowidx, colidx]);
-	          return {};
-	        });
-	      });
+	      var grid = [];
+	      for (var i = 0; i < 13; i += 1) {
+	        var row = [];
+	        for (var j = 0; j < 19; j += 1) {
+	          pos.push([i, j]);
+	          row.push(j);
+	        }
+	        grid.push(row);
+	      }
+	      // let grid = Array(13).fill().map((row, rowidx) => {
+	      //   return Array(19).fill().map((unit, colidx) =>{
+	      //     pos.push([rowidx, colidx])
+	      //     return {
+	      //     }
+	      //   })
+	      // })
 	      return [grid, pos];
 	    }
 

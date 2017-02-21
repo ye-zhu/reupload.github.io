@@ -7,13 +7,22 @@ class Board {
 
   makeBoard () {
     let pos = []
-    let grid = Array(13).fill().map((row, rowidx) => {
-      return Array(19).fill().map((unit, colidx) =>{
-        pos.push([rowidx, colidx])
-        return {
-        }
-      })
-    })
+    let grid = []
+    for (let i=0; i<13; i+=1) {
+      let row = []
+      for (let j=0; j<19; j+=1) {
+        pos.push([i, j])
+        row.push(j)
+      }
+      grid.push(row)
+    }
+    // let grid = Array(13).fill().map((row, rowidx) => {
+    //   return Array(19).fill().map((unit, colidx) =>{
+    //     pos.push([rowidx, colidx])
+    //     return {
+    //     }
+    //   })
+    // })
     return [grid, pos]
   }
 
