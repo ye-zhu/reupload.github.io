@@ -4,26 +4,34 @@ class Board {
   }
 
  units () {
-   let units = Array(14).fill().map((unit, colidx) => {
-     let filled = (colidx === 0 || colidx === 12 || colidx === 1 || colidx ===13) ? 'black' : false
-     return {filled}
-    })
-    return units
+   let units = []
+   for (let i=0; i<14; i+=1) {
+     let filled = (i === 0 || i === 12 || i === 1 || i ===13) ? 'black' : false
+     units.push({filled})
+   }
+   return units
  }
 
  makeBoard () {
-    let grid = Array(25).fill().map((row, rowidx) => this.units())
+   let grid = []
+   for (let i=0; i<25; i+=1) {
+     grid.push(this.units())
+   }
+    // let grid = Array(25).fill().map((row, rowidx) => this.units())
     grid[23].forEach((el) => {el.filled = "black"})
     grid[24].forEach((el) => {el.filled = "black"})
     return grid
   }
 
   makeNextPieceSceen () {
-    let grid = Array(2).fill().map((row) => {
-      return Array(4).fill().map((unit) => {
-        return {filled:false}
-      })
-    })
+    let grid = []
+    for (let i=0; i<2; i+=1) {
+      let row = []
+      for (let j=0; j<4; j+=1) {
+        row.push({filled:false})
+      }
+      grid.push(row)
+    }    
     return grid
   }
 

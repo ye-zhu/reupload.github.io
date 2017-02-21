@@ -16,13 +16,6 @@ class Board {
       }
       grid.push(row)
     }
-    // let grid = Array(13).fill().map((row, rowidx) => {
-    //   return Array(19).fill().map((unit, colidx) =>{
-    //     pos.push([rowidx, colidx])
-    //     return {
-    //     }
-    //   })
-    // })
     return [grid, pos]
   }
 

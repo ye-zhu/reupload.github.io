@@ -20362,20 +20362,27 @@
 	  _createClass(Board, [{
 	    key: "units",
 	    value: function units() {
-	      var units = Array(14).fill().map(function (unit, colidx) {
-	        var filled = colidx === 0 || colidx === 12 || colidx === 1 || colidx === 13 ? 'black' : false;
-	        return { filled: filled };
-	      });
+	      var units = [];
+	      for (var i = 0; i < 14; i += 1) {
+	        var filled = i === 0 || i === 12 || i === 1 || i === 13 ? 'black' : false;
+	        units.push({ filled: filled });
+	      }
 	      return units;
+
+	      //  let units = Array(14).fill().map((unit, colidx) => {
+	      //    let filled = (colidx === 0 || colidx === 12 || colidx === 1 || colidx ===13) ? 'black' : false
+	      //    return {filled}
+	      //   })
+	      //   return units
 	    }
 	  }, {
 	    key: "makeBoard",
 	    value: function makeBoard() {
-	      var _this = this;
-
-	      var grid = Array(25).fill().map(function (row, rowidx) {
-	        return _this.units();
-	      });
+	      var grid = [];
+	      for (var i = 0; i < 25; i += 1) {
+	        grid.push(this.units());
+	      }
+	      // let grid = Array(25).fill().map((row, rowidx) => this.units())
 	      grid[23].forEach(function (el) {
 	        el.filled = "black";
 	      });
@@ -20387,11 +20394,19 @@
 	  }, {
 	    key: "makeNextPieceSceen",
 	    value: function makeNextPieceSceen() {
-	      var grid = Array(2).fill().map(function (row) {
-	        return Array(4).fill().map(function (unit) {
-	          return { filled: false };
-	        });
-	      });
+	      var grid = [];
+	      for (var i = 0; i < 2; i += 1) {
+	        var row = [];
+	        for (var j = 0; j < 4; j += 1) {
+	          row.push({ filled: false });
+	        }
+	        grid.push(row);
+	      }
+	      // let grid = Array(2).fill().map((row) => {
+	      //   return Array(4).fill().map((unit) => {
+	      //     return {filled:false}
+	      //   })
+	      // })
 	      return grid;
 	    }
 	  }, {
@@ -20969,13 +20984,6 @@
 	        }
 	        grid.push(row);
 	      }
-	      // let grid = Array(13).fill().map((row, rowidx) => {
-	      //   return Array(19).fill().map((unit, colidx) =>{
-	      //     pos.push([rowidx, colidx])
-	      //     return {
-	      //     }
-	      //   })
-	      // })
 	      return [grid, pos];
 	    }
 
