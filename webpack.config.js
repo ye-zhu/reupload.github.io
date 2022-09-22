@@ -1,22 +1,31 @@
+var path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-  entry: "./index.jsx",
+  entry: './root.jsx',
   output: {
-    filename: "bundle.js",
+    path: path.resolve(__dirname),
+    filename: 'index.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
-
+  mode: 'development',
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: 'app/index.html'
+  //   })
+  // ],
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: [".js", ".jsx", "*"]
   }
-};
+}
