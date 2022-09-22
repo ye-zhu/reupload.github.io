@@ -44,8 +44,7 @@ class YeZhu extends React.Component {
       <div className="yeZhuPage">
         <span className="yeZhuPage intro"> Hi. I&rsquo;m Ye Qin Zhu. </span><br/><br/>
           I am a web developer experienced in Ruby, JavaScript, and ReactJS.
-          I build web apps and games. I love the language of programming.
-          When I am not working on a project, I am making and exhibiting art in NYC.
+          I build web apps and games. When I am not working on a project, I am making and exhibiting art in NYC.
           <br/><br/>
           CHECK OUT and PLAY
           some of the javascript games I've made by clicking on the buttons on the left.
